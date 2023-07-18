@@ -5,15 +5,19 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Movies {
-  id          String    @id @default(uuid())
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
   title       String
   plot        String?
   genres      String[]
@@ -22,7 +26,6 @@ model Movies {
   cast        String[]
   fullplot    String?
   languages   String[]
-  released    DateTime?
   directors   String[]
   writers     String[]
   rated       String?

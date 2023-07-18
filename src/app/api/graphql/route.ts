@@ -1,13 +1,12 @@
-import { createSchema, createYoga } from "graphql-yoga"
+import { createYoga } from "graphql-yoga"
 import { NextApiRequest, NextApiResponse } from "next"
-import { typeDefs } from "../../../../graphql/schema"
-import { resolvers } from "../../../../graphql/resolvers"
+import { schema } from "../../../../graphql/schema"
 
 const { handleRequest } = createYoga<{
   req: NextApiRequest
   res: NextApiResponse
 }>({
-  schema: createSchema({ typeDefs, resolvers }),
+  schema: schema,
   graphqlEndpoint: "/api/graphql",
   fetchAPI: { Response },
 })
