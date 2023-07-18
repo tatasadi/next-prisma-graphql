@@ -18,62 +18,6 @@ export const movies = [
     type: "series",
   },
   {
-    plot: "Emmy Award winning, 11-episodes, 5-years in the making, the most expensive nature documentary series ever commissioned by the BBC, and the first to be filmed in high definition.",
-    genres: ["Documentary"],
-    runtime: 60,
-    cast: ["David Attenborough", "Sigourney Weaver"],
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BNmZlYzIzMTItY2EzYS00YTEyLTg0ZjEtMDMzZjM3ODdhN2UzXkEyXkFqcGdeQXVyNjI0MDg2NzE@._V1_SY1000_SX677_AL_.jpg",
-    title: "Planet Earth",
-    fullplot:
-      "Each 50 minute episode features a global overview of a different biome or habitat on Earth (Polar, Mountain, Cave, Desert, Plains, Fresh Water, Seas, Ocean, Forest), followed by a ten-minute featurette which takes a behind-the-scenes look at the challenges of filming the episode.",
-    languages: ["English"],
-    released: "2007-03-25T00:00:00.000Z",
-    rated: "TV-G",
-    lastupdated: "2015-09-15 05:36:43.637000000",
-    year: 2006,
-    countries: ["UK"],
-    type: "series",
-  },
-  {
-    plot: "A documentary following the life of Lizzie Velasquez, her triumphant journey to the other side of bullying, and her mission to inspire and empower a more positive online environment.",
-    genres: ["Documentary", "Biography", "Family"],
-    runtime: 78,
-    rated: "PG-13",
-    cast: ["Lizzie Velasquez"],
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BMTU4MTcwMzU5Ml5BMl5BanBnXkFtZTgwOTQwMzM2NDE@._V1_SY1000_SX677_AL_.jpg",
-    title: "A Brave Heart: The Lizzie Velasquez Story",
-    fullplot:
-      'A BRAVE HEART: The Lizzie Velasquez Story is a documentary following the inspiring journey of 26 year old, 58 pound Lizzie from cyber-bullying victim to anti-bullying activist. Born with a rare syndrome that prevents her from gaining weight, Elizabeth "Lizzie" Velasquez was first bullied as a child in school for looking different and, later online, as a teenager when she discovered a YouTube video labeling her "The World\'s Ugliest Woman." The film chronicles unheard stories and details of Lizzie\'s physical and emotional journey up to her multi-million viewed TEDx talk, and follows her pursuit from a motivational speaker to Capitol Hill as she lobbies for the first federal anti-bullying bill.',
-    languages: ["English", "Spanish"],
-    released: "2015-09-25T00:00:00.000Z",
-    directors: ["Sara Hirsh Bordo"],
-    writers: ["Michael Campo"],
-    lastupdated: "2015-08-02 00:08:31.967000000",
-    year: 2015,
-    countries: ["USA"],
-    type: "movie",
-  },
-  {
-    plot: "A comprehensive survey of the American Civil War.",
-    genres: ["Documentary", "History", "War"],
-    runtime: 680,
-    cast: ["Sam Waterston", "Julie Harris", "Jason Robards", "Morgan Freeman"],
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BZDc1NzI2MGEtZDA2Yy00ZWExLTgwYmItNjU3N2QyYmM0MzYwXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_SX677_AL_.jpg",
-    title: "The Civil War",
-    fullplot:
-      "This highly acclaimed mini series traces the course of the U.S. Civil War from the abolitionist movement through all the major battles to the death of President Lincoln and the beginnings of Reconstruction. The story is mostly told in the words of the participants themselves, through their diaries, letters, and Visuals are usually still photographs and illustrations of the time, and the soundtrack is likewise made up of war-era tunes played on period instruments. Several modern-day historians offer periodic comment and insight on the war's causes and events.",
-    languages: ["English"],
-    released: "1990-09-23T00:00:00.000Z",
-
-    lastupdated: "2015-08-30 22:52:05.467000000",
-    year: 1990,
-    countries: ["USA"],
-    type: "series",
-  },
-  {
     plot: "A comprehensive survey of the American Civil War.",
     genres: ["Documentary", "History", "War"],
     runtime: 680,
@@ -108,30 +52,6 @@ export const movies = [
     year: 1980,
     countries: ["USA", "UK"],
     type: "series",
-  },
-  {
-    fullplot:
-      "Andy Dufresne is a young and successful banker whose life changes drastically when he is convicted and sentenced to life imprisonment for the murder of his wife and her lover. Set in the 1940s, the film shows how Andy, with the help of his friend Red, the prison entrepreneur, turns out to be a most unconventional prisoner.",
-    year: 1994,
-    plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    genres: ["Crime", "Drama"],
-    rated: "R",
-    title: "The Shawshank Redemption",
-    lastupdated: "2015-08-30 03:49:02.943000000",
-    languages: ["English"],
-    writers: [
-      'Stephen King (short story "Rita Hayworth and Shawshank Redemption")',
-      "Frank Darabont (screenplay)",
-    ],
-    type: "movie",
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_SX677_AL_.jpg",
-    released: "1994-10-14T00:00:00.000Z",
-
-    countries: ["USA"],
-    cast: ["Tim Robbins", "Morgan Freeman", "Bob Gunton", "William Sadler"],
-    directors: ["Frank Darabont"],
-    runtime: 142,
   },
   {
     plot: "The life of the greatest karate master of a generation.",
@@ -182,24 +102,6 @@ export const movies = [
     runtime: 142,
   },
   {
-    plot: "Mammoth series, five years in the making, taking a look at the rich tapestry of life in the world's oceans.",
-    genres: ["Documentary"],
-    runtime: 50,
-    cast: ["Pierce Brosnan", "David Attenborough"],
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BZGFhMGNmNDktYjY0Mi00YWE1LTlmMDQtZTBiNmU4NGYzZjZkXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SY1000_SX677_AL_.jpg",
-    title: "The Blue Planet",
-    fullplot:
-      "Mammoth series, five years in the making, taking a look at the rich tapestry of life in the world's oceans.",
-    languages: ["English"],
-    released: "2002-01-27T00:00:00.000Z",
-
-    lastupdated: "2015-08-01 00:02:35.093000000",
-    year: 2001,
-    countries: ["UK"],
-    type: "series",
-  },
-  {
     fullplot:
       "When the aging head of a famous crime family decides to transfer his position to one of his subalterns, a series of unfortunate events start happening to the family, and a war begins between all the well-known families leading to insolence, deportation, murder and revenge, and ends with the favorable successor being finally chosen.",
     year: 1972,
@@ -224,23 +126,7 @@ export const movies = [
     directors: ["Francis Ford Coppola"],
     runtime: 175,
   },
-  {
-    plot: "Like all life forms, humanity partially adapts to types of natural environment, yet also tends to change them. Each episode examines how life differs for men and nature in some type of ...",
-    genres: ["Documentary"],
-    countries: ["UK"],
-    cast: ["John Hurt"],
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BMjdhZjQzYjYtM2FmNS00Y2ExLThjODEtZGQzY2M3OWYzYzc0XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_SX677_AL_.jpg",
-    title: "Human Planet",
-    fullplot:
-      "Like all life forms, humanity partially adapts to types of natural environment, yet also tends to change them. Each episode examines how life differs for men and nature in some type of environment, from Arctic to desert and jungle, from coasts to mountains.",
-    languages: ["English"],
-    released: "2011-01-13T00:00:00.000Z",
 
-    lastupdated: "2015-09-15 04:50:25.710000000",
-    year: 2011,
-    type: "series",
-  },
   {
     plot: "David Attenborough's legendary BBC crew explains and shows wildlife all over planet earth in 10 episodes. The first is an overview the challenges facing life, the others are dedicated to ...",
     genres: ["Documentary"],
@@ -257,24 +143,6 @@ export const movies = [
     rated: "PG",
     lastupdated: "2015-08-15 00:36:25.363000000",
     year: 2009,
-    type: "series",
-  },
-  {
-    plot: "Two brothers find themselves lost in a mysterious land and try to find their way home.",
-    genres: ["Animation", "Adventure", "Comedy"],
-    countries: ["USA"],
-    cast: ["Elijah Wood", "Collin Dean", "Melanie Lynskey"],
-    poster:
-      "https://m.media-amazon.com/images/M/MV5BYjQwZDhhNzctNTZjYy00NjYzLWE3ZjctNGQwZWY2Zjg5NTgwL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SY1000_SX677_AL_.jpg",
-    title: "Over the Garden Wall",
-    fullplot:
-      "Two brothers find themselves lost in a mysterious land and try to find their way home.",
-    languages: ["English"],
-    released: "2014-11-03T00:00:00.000Z",
-
-    rated: "TV-PG",
-    lastupdated: "2015-08-04 00:01:00.303000000",
-    year: 2014,
     type: "series",
   },
   {
