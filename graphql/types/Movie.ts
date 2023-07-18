@@ -26,6 +26,6 @@ builder.queryField("movies", (t) =>
   t.prismaField({
     type: ["Movies"],
     resolve: (query, _parent, _args, _ctx, _info) =>
-      prisma.movies.findMany({ take: 10, ...query }),
+      prisma.movies.findMany({ take: 15, ...query }),
   })
 )
