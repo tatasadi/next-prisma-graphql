@@ -3,6 +3,7 @@ import "./globals.css"
 import { Inter } from "next/font/google"
 import { ApolloProvider } from "@apollo/client"
 import apolloClient from "../../lib/apollo"
+import { UserProvider } from "@auth0/nextjs-auth0/client"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -17,7 +18,9 @@ export default function RootLayout({
         <title>Awesome Movies</title>
       </head>
       <body className={inter.className}>
-        <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
+        <UserProvider>
+          <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
+        </UserProvider>
       </body>
     </html>
   )
