@@ -1,13 +1,10 @@
+"use client"
 import "./globals.css"
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import { ApolloProvider } from "@apollo/client"
+import apolloClient from "../../lib/apollo"
 
 const inter = Inter({ subsets: ["latin"] })
-
-export const metadata: Metadata = {
-  title: "Awesome Movies",
-  description: "This is a next app for awesome movies.",
-}
 
 export default function RootLayout({
   children,
@@ -16,7 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <title>Awesome Movies</title>
+      </head>
+      <body className={inter.className}>
+        <ApolloProvider client={apolloClient}>{children}</ApolloProvider>
+      </body>
     </html>
   )
 }
