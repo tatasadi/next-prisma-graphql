@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client"
-import { movies } from "../data/movies"
+import movies from "../data/movies"
 
 const prisma = new PrismaClient()
 
 async function main() {
-  await prisma.movies.createMany({
+  await prisma.movie.createMany({
     data: movies,
   })
 }

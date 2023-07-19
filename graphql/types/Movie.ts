@@ -1,6 +1,6 @@
 import { builder } from "../builder"
 
-builder.prismaObject("Movies", {
+builder.prismaObject("Movie", {
   fields: (t) => ({
     id: t.exposeID("id"),
     title: t.exposeString("title"),
@@ -22,10 +22,11 @@ builder.prismaObject("Movies", {
   }),
 })
 
-builder.queryField("movies", (t) =>
-  t.prismaField({
-    type: ["Movies"],
+builder.queryField("movie", (t) =>
+  t.prismaConnection({
+    type: "Movie",
+    cursor: "id",
     resolve: (query, _parent, _args, _ctx, _info) =>
-      prisma.movies.findMany({ take: 15, ...query }),
+      prisma.movie.findMany({ ...query }),
   })
 )
