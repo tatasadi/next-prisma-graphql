@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="p-4 bg-yellow-300 flex items-center ">
       <h1>Awesome Movies</h1>
-      <nav className="ml-auto flex gap-4">
+      <nav className="ml-auto flex gap-4 items-center">
         <Link href="/" className="nav-link">
           Home
         </Link>
