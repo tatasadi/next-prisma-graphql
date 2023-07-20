@@ -7,10 +7,19 @@ export default function Header() {
   return (
     <header className="p-4 bg-yellow-300 flex items-center ">
       <h1>Awesome Movies</h1>
-      <nav className="ml-auto">
+      <nav className="ml-auto flex gap-4">
+        <Link href="/" className="nav-link">
+          Home
+        </Link>
+        <Link href="/all" className="nav-link">
+          All Movies
+        </Link>
+        <Link href="/search" className="nav-link">
+          Search
+        </Link>
         {user ? (
-          <div className="flex items-center gap-4">
-            <Link href="/api/auth/logout" className="auth-button">
+          <div className="ml-auto flex items-center gap-4">
+            <Link href="/api/auth/logout" className="nav-link">
               Logout
             </Link>
             <img
@@ -20,7 +29,7 @@ export default function Header() {
             />
           </div>
         ) : (
-          <Link href="/api/auth/login" className="auth-button">
+          <Link href="/api/auth/login" className="nav-link ml-auto">
             Login
           </Link>
         )}
