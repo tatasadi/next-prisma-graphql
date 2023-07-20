@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { gql, useQuery } from "@apollo/client"
 import type { Movie } from "@prisma/client"
+import Header from "@/components/Layout/Header"
 
 const AllMoviesQuery = gql`
   query allMoviesQuery($first: Int, $after: ID) {
@@ -47,9 +48,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="p-4 bg-yellow-300">
-        <h1>Awesome Movies</h1>
-      </header>
+      <Header />
       <main className="p-10">
         <div className="grid gap-4 grid-cols-12 flex-wrap justify-center">
           {data?.movie.edges.map(({ node }: { node: Movie }) => {

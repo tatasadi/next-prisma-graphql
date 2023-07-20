@@ -20,3 +20,7 @@
 .card {
   @apply bg-white p-4 rounded-lg shadow-md;
 }
+
+.auth-button {
+  @apply text-gray-900 hover:text-gray-500 cursor-pointer;
+}
