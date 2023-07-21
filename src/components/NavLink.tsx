@@ -9,7 +9,6 @@ import Link from "next/link"
 
 export const NavLink = ({ href, exact = false, children, ...props }) => {
   const pathname = usePathname()
-  console.log(pathname, href)
   const isActive = exact ? pathname === href : pathname.startsWith(href)
 
   if (isActive) {

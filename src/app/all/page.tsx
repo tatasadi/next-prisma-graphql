@@ -2,10 +2,11 @@
 import Image from "next/image"
 import { gql, useQuery } from "@apollo/client"
 import type { Movie } from "@prisma/client"
+import MovieCard from "@/components/MovieCard"
 
 const AllMoviesQuery = gql`
   query allMoviesQuery($first: Int, $after: ID) {
-    movie(first: $first, after: $after) {
+    movies(first: $first, after: $after) {
       pageInfo {
         endCursor
         hasNextPage
@@ -43,33 +44,14 @@ export default function AllPage() {
   if (loading) return <p>Loading</p>
   if (error) return <p>Oh no... {error.message}</p>
 
-  const { endCursor, hasNextPage } = data.movie.pageInfo
+  const { endCursor, hasNextPage } = data.movies.pageInfo
 
   return (
     <main className="p-10">
       <div className="grid gap-4 grid-cols-12 flex-wrap justify-center">
-        {data?.movie.edges.map(({ node }: { node: Movie }) => {
-          return (
-            <div
-              key={node.id}
-              className="card col-span-12 md:col-span-6 lg:col-span-4 flex gap-2"
-            >
-              {node.poster && (
-                <Image
-                  src={node.poster}
-                  alt={"Movie Poster"}
-                  width={100}
-                  height={100}
-                  style={{ width: "auto", height: "auto" }}
-                />
-              )}
-              <div>
-                <h3 className="font-bold text-gray-900">{node.title}</h3>
-                <p className="text-sm text-gray-600">{node.plot}</p>
-              </div>
-            </div>
-          )
-        })}
+        {data?.movies.edges.map(({ node }: { node: Movie }) => (
+          <MovieCard key={node.id} movie={node} />
+        ))}
       </div>
       {hasNextPage ? (
         <button
@@ -78,9 +60,9 @@ export default function AllPage() {
             fetchMore({
               variables: { after: endCursor },
               updateQuery: (prevResult, { fetchMoreResult }) => {
-                fetchMoreResult.movie.edges = [
-                  ...prevResult.movie.edges,
-                  ...fetchMoreResult.movie.edges,
+                fetchMoreResult.movies.edges = [
+                  ...prevResult.movies.edges,
+                  ...fetchMoreResult.movies.edges,
                 ]
                 return fetchMoreResult
               },

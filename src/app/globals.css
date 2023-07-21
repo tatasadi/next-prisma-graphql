@@ -15,6 +15,9 @@
   h3 {
     @apply text-lg;
   }
+  input {
+    @apply p-2 rounded-md;
+  }
 }
 
 .home-card {
@@ -31,4 +34,12 @@
 
 .nav-link.active {
   @apply bg-yellow-200 font-bold;
+}
+
+.btn {
+  @apply rounded-md bg-purple-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-600;
+}
+
+.btn-invisible {
+  @apply cursor-pointer;
 }
