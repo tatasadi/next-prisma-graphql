@@ -44,9 +44,7 @@ export default function SearchPage() {
 
   useEffect(() => {
     if (!titleToSearch) return
-    console.log(titleToSearch)
     getMovie({ variables: { title: titleToSearch } }).then((result) => {
-      console.log(result.data)
       if (result.data) setMovie(result.data.movie[0])
     })
   }, [titleToSearch])
