@@ -41,8 +41,8 @@ export default function AllPage() {
     variables: { first: 12 },
   })
 
-  if (loading) return <p>Loading</p>
-  if (error) return <p>Oh no... {error.message}</p>
+  if (loading) return <p className="p-10 text-center">Loading...</p>
+  if (error) return <p className="p-10">Oh no... {error.message}</p>
 
   const { endCursor, hasNextPage } = data.movies.pageInfo
 
