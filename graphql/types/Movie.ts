@@ -22,11 +22,25 @@ builder.prismaObject("Movie", {
   }),
 })
 
-builder.queryField("movie", (t) =>
+builder.queryField("movies", (t) =>
   t.prismaConnection({
     type: "Movie",
     cursor: "id",
     resolve: (query, _parent, _args, _ctx, _info) =>
       prisma.movie.findMany({ ...query }),
+  })
+)
+
+builder.queryField("movie", (t) =>
+  t.prismaField({
+    type: ["Movie"],
+    args: {
+      title: t.arg.string({ required: true }),
+    },
+    resolve: (query, _parent, _args, _ctx, _info) =>
+      prisma.movie.findMany({
+        ...query,
+        where: { title: _args.title },
+      }),
   })
 )
