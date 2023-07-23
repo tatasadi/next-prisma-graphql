@@ -45,7 +45,7 @@
 }
 
 .info-box {
-  @apply min-w-[400px] min-h-[600px];
+  @apply w-[400px] min-h-[600px];
 }
 
 .error {

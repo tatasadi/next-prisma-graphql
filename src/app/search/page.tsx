@@ -109,7 +109,13 @@ function SearchMovieForm({ titleToSearch, onSubmit }) {
 
 function MovieInfo({ loading, error, data }) {
   if (loading) return <div className="info-box card">Loading...</div>
-  if (error) return <div className="info-box card">{error.message}</div>
+  if (error)
+    return (
+      <div role="alert" className="info-box card error">
+        There was an error:{" "}
+        <pre style={{ whiteSpace: "normal" }}>{error.message}</pre>
+      </div>
+    )
   if (data) {
     const movie = data.movie[0]
     if (movie) {
