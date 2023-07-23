@@ -1,11 +1,12 @@
 "use client"
 import { gql, useLazyQuery } from "@apollo/client"
-import { useEffect, useState } from "react"
+import { Component, ReactNode, useEffect, useState } from "react"
 import MovieCard from "@/components/MovieCard"
+import React from "react"
 
 const movieQuery = gql`
   query getMovie($title: String!) {
-    movie(title: $title) {
+    moviess(title: $title) {
       id
       title
       plot
@@ -42,7 +43,9 @@ export default function SearchPage() {
   return (
     <main className="p-10 flex flex-col items-center gap-4">
       <SearchMovieForm titleToSearch={titleToSearch} onSubmit={handleSubmit} />
-      <MovieInfo loading={loading} error={error} data={data} />
+      <ErrorBoundary key={titleToSearch} FallbackComponent={ErrorFallback}>
+        <MovieInfo loading={loading} error={error} data={data} />
+      </ErrorBoundary>
     </main>
   )
 }
@@ -109,13 +112,7 @@ function SearchMovieForm({ titleToSearch, onSubmit }) {
 
 function MovieInfo({ loading, error, data }) {
   if (loading) return <div className="info-box card">Loading...</div>
-  if (error)
-    return (
-      <div role="alert" className="info-box card error">
-        There was an error:{" "}
-        <pre style={{ whiteSpace: "normal" }}>{error.message}</pre>
-      </div>
-    )
+  if (error) throw error
   if (data) {
     const movie = data.movie[0]
     if (movie) {
@@ -135,5 +132,34 @@ function MovieInfo({ loading, error, data }) {
         Please enter the title of the movie and click submit!
       </div>
     )
+  }
+}
+
+function ErrorFallback({ error }) {
+  return (
+    <div role="alert" className="info-box card error">
+      There was an error:{" "}
+      <pre style={{ whiteSpace: "normal" }}>{error.message}</pre>
+    </div>
+  )
+}
+
+class ErrorBoundary extends Component<
+  {
+    children?: ReactNode
+  },
+  { error: Error | null }
+> {
+  state = { error: null }
+  static getDerivedStateFromError(error) {
+    return { error }
+  }
+  render() {
+    const { error } = this.state
+    if (error) {
+      return <this.props.FallbackComponent error={error} />
+    }
+
+    return this.props.children
   }
 }
