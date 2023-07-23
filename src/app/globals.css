@@ -25,7 +25,7 @@
 }
 
 .card {
-  @apply bg-white p-4 rounded-lg shadow-md;
+  @apply bg-white p-4 rounded-lg shadow-lg;
 }
 
 .nav-link {
@@ -42,4 +42,12 @@
 
 .btn-invisible {
   @apply cursor-pointer;
+}
+
+.info-box {
+  @apply min-w-[400px] min-h-[600px];
+}
+
+.error {
+  @apply text-red-600;
 }
