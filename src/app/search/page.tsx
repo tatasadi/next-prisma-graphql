@@ -3,10 +3,11 @@ import { gql, useLazyQuery } from "@apollo/client"
 import { Component, ReactNode, useEffect, useState } from "react"
 import MovieCard from "@/components/MovieCard"
 import React from "react"
+import { ErrorBoundary } from "react-error-boundary"
 
 const movieQuery = gql`
   query getMovie($title: String!) {
-    moviess(title: $title) {
+    movie(title: $title) {
       id
       title
       plot
@@ -28,23 +29,25 @@ const movieQuery = gql`
 `
 
 export default function SearchPage() {
-  const [getMovie, { loading, error, data }] = useLazyQuery(movieQuery)
   const [titleToSearch, setTitleToSearch] = useState("")
 
   function handleSubmit(newMovieTitle) {
     setTitleToSearch(newMovieTitle)
   }
 
-  useEffect(() => {
-    if (!titleToSearch) return
-    getMovie({ variables: { title: titleToSearch } })
-  }, [titleToSearch])
+  function handleReset() {
+    setTitleToSearch("")
+  }
 
   return (
     <main className="p-10 flex flex-col items-center gap-4">
       <SearchMovieForm titleToSearch={titleToSearch} onSubmit={handleSubmit} />
-      <ErrorBoundary key={titleToSearch} FallbackComponent={ErrorFallback}>
-        <MovieInfo loading={loading} error={error} data={data} />
+      <ErrorBoundary
+        FallbackComponent={ErrorFallback}
+        onReset={handleReset}
+        resetKeys={[titleToSearch]}
+      >
+        <MovieInfo titleToSearch={titleToSearch} />
       </ErrorBoundary>
     </main>
   )
@@ -52,6 +55,10 @@ export default function SearchPage() {
 
 function SearchMovieForm({ titleToSearch, onSubmit }) {
   const [inputValue, setInputValue] = useState(titleToSearch ?? "")
+
+  useEffect(() => {
+    setInputValue(titleToSearch)
+  }, [titleToSearch])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -110,7 +117,14 @@ function SearchMovieForm({ titleToSearch, onSubmit }) {
   )
 }
 
-function MovieInfo({ loading, error, data }) {
+function MovieInfo({ titleToSearch }) {
+  const [getMovie, { loading, error, data }] = useLazyQuery(movieQuery)
+
+  useEffect(() => {
+    if (!titleToSearch) return
+    getMovie({ variables: { title: titleToSearch } })
+  }, [titleToSearch])
+
   if (loading) return <div className="info-box card">Loading...</div>
   if (error) throw error
   if (data) {
@@ -122,44 +136,25 @@ function MovieInfo({ loading, error, data }) {
         </div>
       )
     } else {
+      // if you want to throw an error, you can do somthing like this:
+      //throw new Error("No movie found with this title.")
       return (
         <div className="info-box card">No movie found with this title.</div>
       )
     }
   } else {
-    return (
-      <div className="info-box card">
-        Please enter the title of the movie and click submit!
-      </div>
-    )
+    return <div className="info-box card">Submit the title of a movie</div>
   }
 }
 
-function ErrorFallback({ error }) {
+function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert" className="info-box card error">
       There was an error:{" "}
       <pre style={{ whiteSpace: "normal" }}>{error.message}</pre>
+      <button className="btn mt-4" onClick={resetErrorBoundary}>
+        Try again
+      </button>
     </div>
   )
-}
-
-class ErrorBoundary extends Component<
-  {
-    children?: ReactNode
-  },
-  { error: Error | null }
-> {
-  state = { error: null }
-  static getDerivedStateFromError(error) {
-    return { error }
-  }
-  render() {
-    const { error } = this.state
-    if (error) {
-      return <this.props.FallbackComponent error={error} />
-    }
-
-    return this.props.children
-  }
 }
